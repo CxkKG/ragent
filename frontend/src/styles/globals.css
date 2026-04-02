@@ -10,29 +10,29 @@
   --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
-  --primary: 239 84% 67%;
+  --primary: 160 84% 42%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 210 40% 96%;
-  --secondary-foreground: 222 47% 11%;
+  --secondary: 160 50% 96%;
+  --secondary-foreground: 160 30% 20%;
   --muted: 214 32% 91%;
   --muted-foreground: 215 16% 47%;
-  --accent: 210 40% 96%;
-  --accent-foreground: 222 47% 11%;
+  --accent: 160 50% 96%;
+  --accent-foreground: 160 30% 20%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --border: 214 32% 91%;
   --input: 214 32% 91%;
-  --ring: 239 84% 67%;
-  --chat-user: 239 84% 96%;
+  --ring: 160 84% 42%;
+  --chat-user: 160 50% 96%;
   --chat-assistant: 0 0% 100%;
-  --glow: 239 84% 67%;
+  --glow: 160 84% 42%;
 
   /* ===== 新设计系统 - 背景 ===== */
   --bg-primary: #ffffff;
   --bg-secondary: #fafafa;
   --bg-tertiary: #f5f5f5;
   --bg-hover: #eeeeee;
-  --bg-active: #fef3c7;
+  --bg-active: #ecfdf5;
 
   /* ===== 新设计系统 - 文字 ===== */
   --text-primary: #1a1a1a;
@@ -41,23 +41,23 @@
   --text-muted: #cccccc;
   --text-on-accent: #ffffff;
 
-  /* ===== 新设计系统 - 强调色（蓝色系）===== */
-  --accent-primary: #3b82f6;
-  --accent-secondary: #2563eb;
-  --accent-light: #dbeafe;
-  --accent-hover: #60a5fa;
+  /* ===== 新设计系统 - 强调色（青绿色系 - 课程学习助手）===== */
+  --accent-primary: #14b8a6;
+  --accent-secondary: #0d9488;
+  --accent-light: #ccfbf1;
+  --accent-hover: #2dd4bf;
 
   /* ===== 新设计系统 - 边框 ===== */
   --border-default: #e5e5e5;
   --border-light: #f0f0f0;
   --border-focus: #d4d4d4;
-  --border-accent: #bfdbfe;
+  --border-accent: #99f6e4;
 
   /* ===== 新设计系统 - 状态色 ===== */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
-  --info: #3b82f6;
+  --info: #14b8a6;
 
   /* ===== 新设计系统 - 圆角 ===== */
   --radius-sm: 6px;
@@ -122,16 +122,16 @@
 
   /* ===== 旧变量保留（兼容性）===== */
   --sidebar-bg: #fafafa;
-  --sidebar-item-active: #dbeafe;
+  --sidebar-item-active: #ccfbf1;
   --sidebar-item-hover: #f5f5f5;
-  --primary-color: #3b82f6;
-  --primary-light: #60a5fa;
-  --primary-dark: #2563eb;
-  --secondary-color: #3b82f6;
-  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  --gradient-light: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  --dsw-alias-brand-primary-invert: #93c5fd;
-  --dsw-specific-sidebar-nav-item-active-accent: #eff6ff;
+  --primary-color: #14b8a6;
+  --primary-light: #2dd4bf;
+  --primary-dark: #0d9488;
+  --secondary-color: #14b8a6;
+  --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+  --gradient-light: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+  --dsw-alias-brand-primary-invert: #5eead4;
+  --dsw-specific-sidebar-nav-item-active-accent: #f0fdfa;
 }
 
 .dark {
