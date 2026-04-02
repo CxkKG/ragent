@@ -27,7 +27,7 @@
 如果使用 2.6.6 版本无法正常启动，请切换到此文件：
 
 ```bash
-docker compose -f milvus-stack-2.5.8.compose.yaml up -d
+docker compose -f milvus-stack-2.6.6.compose.yaml up -d
 ```
 
 ## 注意事项
