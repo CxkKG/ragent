@@ -33,6 +33,7 @@ export interface KnowledgeDocument {
   updatedBy?: string | null;
   createTime?: string | null;
   updateTime?: string | null;
+  chunksEdited?: boolean | null;
 }
 
 export interface KnowledgeChunk {
@@ -316,20 +317,20 @@ export const toggleChunk = async (docId: string, chunkId: string, enabled: boole
   });
 };
 
-export const batchEnableChunks = async (docId: string, chunkIds?: Array<string | number>): Promise<void> => {
-  await api.post(`/knowledge-base/docs/${docId}/chunks/batch-enable`, {
-    chunkIds: chunkIds && chunkIds.length ? chunkIds : undefined
-  });
+export const batchToggleChunks = async (
+  docId: string,
+  enabled: boolean,
+  chunkIds: Array<string | number>
+): Promise<void> => {
+  await api.patch(
+    `/knowledge-base/docs/${docId}/chunks/batch-enable`,
+    { chunkIds },
+    { params: { value: enabled } }
+  );
 };
 
-export const batchDisableChunks = async (docId: string, chunkIds?: Array<string | number>): Promise<void> => {
-  await api.post(`/knowledge-base/docs/${docId}/chunks/batch-disable`, {
-    chunkIds: chunkIds && chunkIds.length ? chunkIds : undefined
-  });
-};
-
-export const rebuildChunks = async (docId: string): Promise<void> => {
-  await api.post(`/knowledge-base/docs/${docId}/chunks/rebuild`);
+export const previewDocument = async (docId: string): Promise<string> => {
+  return api.get<unknown, string>(`/knowledge-base/docs/${docId}/preview`);
 };
 
 // 文档分块日志管理
