@@ -29,7 +29,6 @@ import com.nageoffer.ai.ragent.rag.core.retrieval.RetrievalEngine;
 import com.nageoffer.ai.ragent.rag.core.rewrite.QueryRewriteService;
 import com.nageoffer.ai.ragent.rag.core.rewrite.RewriteResult;
 import com.nageoffer.ai.ragent.rag.core.source.CitationContextEnricher;
-import com.nageoffer.ai.ragent.rag.dto.IntentGroup;
 import com.nageoffer.ai.ragent.rag.dto.RetrievalContext;
 import com.nageoffer.ai.ragent.rag.dto.SubQuestionIntent;
 import lombok.RequiredArgsConstructor;
@@ -83,11 +82,9 @@ public class KnowledgeSearchFacade {
         // 工具不渲染角标，但内部 docId 一定要抹掉，否则会随工具结果漏进主 Agent 的可见文本
         String kbContext = citationContextEnricher.stripDocIdAnchors(retrievalCtx.getKbContext());
 
-        IntentGroup mergedGroup = intentResolver.mergeIntentGroup(subIntents);
         PromptContext promptContext = PromptContext.builder()
-                .question(rewriteResult.rewrittenQuestion())
                 .kbContext(kbContext)
-                .kbIntents(mergedGroup.kbIntents())
+                .kbIntents(intentResolver.mergeKbIntents(subIntents))
                 .eligibleIntentIds(retrievalCtx.getEligibleIntentIds())
                 .build();
         List<ChatMessage> messages = promptService.buildStructuredMessages(

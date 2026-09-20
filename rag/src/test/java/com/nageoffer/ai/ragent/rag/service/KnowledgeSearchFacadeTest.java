@@ -31,7 +31,6 @@ import com.nageoffer.ai.ragent.rag.core.retrieval.RetrievalEngine;
 import com.nageoffer.ai.ragent.rag.core.rewrite.QueryRewriteService;
 import com.nageoffer.ai.ragent.rag.core.rewrite.RewriteResult;
 import com.nageoffer.ai.ragent.rag.core.source.CitationContextEnricher;
-import com.nageoffer.ai.ragent.rag.dto.IntentGroup;
 import com.nageoffer.ai.ragent.rag.dto.RetrievalContext;
 import com.nageoffer.ai.ragent.rag.dto.SubQuestionIntent;
 import org.junit.jupiter.api.Test;
@@ -127,8 +126,7 @@ class KnowledgeSearchFacadeTest {
                 new SubQuestionIntent("报销标准是多少", List.of(kbNode)),
                 new SubQuestionIntent("公司福利有哪些", List.of())
         ));
-        when(intentResolver.mergeIntentGroup(anyList()))
-                .thenReturn(new IntentGroup(List.of(), List.of(kbNode)));
+        when(intentResolver.mergeKbIntents(anyList())).thenReturn(List.of(kbNode));
         when(retrievalEngine.retrieve(anyList()))
                 .thenReturn(RetrievalContext.builder().kbContext(KB_CONTEXT).build());
         when(promptService.buildStructuredMessages(
@@ -191,8 +189,7 @@ class KnowledgeSearchFacadeTest {
                 .thenReturn(new RewriteResult(QUESTION, List.of(QUESTION)));
         when(intentResolver.resolve(any(RewriteResult.class)))
                 .thenReturn(List.of(new SubQuestionIntent(QUESTION, List.of(kbNode))));
-        when(intentResolver.mergeIntentGroup(anyList()))
-                .thenReturn(new IntentGroup(List.of(), List.of(kbNode)));
+        when(intentResolver.mergeKbIntents(anyList())).thenReturn(List.of(kbNode));
         when(retrievalEngine.retrieve(anyList()))
                 .thenReturn(RetrievalContext.builder().kbContext(KB_CONTEXT).build());
         when(promptService.buildStructuredMessages(
